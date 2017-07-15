@@ -3,3 +3,5 @@
 .DS_Store
 answers
 .hg
+.vscode
+python3/scent.py
