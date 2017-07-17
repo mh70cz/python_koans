@@ -10,10 +10,10 @@ class AboutExceptions(Koan):
 
     def test_exceptions_inherit_from_exception(self):
         mro = self.MySpecialError.mro()
-        self.assertEqual(__, mro[1].__name__)
-        self.assertEqual(__, mro[2].__name__)
-        self.assertEqual(__, mro[3].__name__)
-        self.assertEqual(__, mro[4].__name__)
+        self.assertEqual("RuntimeError", mro[1].__name__)
+        self.assertEqual("Exception", mro[2].__name__)
+        self.assertEqual("BaseException", mro[3].__name__)
+        self.assertEqual("object", mro[4].__name__)
 
     def test_try_clause(self):
         result = None
