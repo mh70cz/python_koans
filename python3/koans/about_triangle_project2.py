@@ -13,13 +13,19 @@ class AboutTriangleProject2(Koan):
         # All sides should be greater than 0
         with self.assertRaises(TriangleError):
             triangle(0, 0, 0)
-        with self.assertRaises(TriangleError):
+                 
+        with self.assertRaises(TriangleError) as cm:
             triangle(3, 4, -5)
+        the_exception = cm.exception
+        self.assertRegex(the_exception.args[0], "side <= 0")
 
         # The sum of any two sides should be greater than the third one
         with self.assertRaises(TriangleError):
             triangle(1, 1, 3)
-        with self.assertRaises(TriangleError):
+        
+        with self.assertRaises(TriangleError) as cm2:
             triangle(2, 5, 2)
+        the_exception = cm2.exception
+        self.assertRegex(the_exception.args[0], "the sum of any two sides")
 
 
