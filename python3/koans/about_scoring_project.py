@@ -35,6 +35,27 @@ from runner.koan import *
 def score(dice):
     # You need to write this method
     pass
+    score = 0
+    hist = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
+
+    for elem in dice:
+        hist[elem] += 1
+
+    if hist[1] >= 3:
+        score += 1000
+        hist[1] -= 3
+    score += hist[1] * 100
+
+    if hist[5] >= 3:
+        score += 100 * 5
+        hist[5] -= 3
+    score += hist[5] * 50
+
+    for n in [2, 3, 4, 6]:
+        if hist[n] >= 3:
+            score += n * 100
+
+    return score
 
 class AboutScoringProject(Koan):
     def test_score_of_an_empty_list_is_zero(self):
