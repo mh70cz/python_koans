@@ -34,7 +34,7 @@ from runner.koan import *
 
 def score(dice):
     # You need to write this method
-    pass
+ 
     score = 0
     hist = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
 
